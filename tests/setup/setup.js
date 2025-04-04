@@ -6,7 +6,12 @@ let mongod;
 
 beforeAll(async () => {
   console.log("Creating MongoDB Memory Server for tests");
-  mongod = await MongoMemoryServer.create();
+  mongod = await MongoMemoryServer.create({
+    instance: {
+      storageEngine: "wiredTiger",
+      args: ["--setParameter", "diagnosticDataCollectionEnabled=false"],
+    },
+  });
   const uri = mongod.getUri();
 
   // Override environment variables for testing
@@ -16,8 +21,12 @@ beforeAll(async () => {
 
   console.log("Using MongoDB Memory Server for tests");
 
-  // Connect to the in-memory database
-  await mongoose.connect(uri);
+  // Connect to the in-memory database with extended timeouts
+  await mongoose.connect(uri, {
+    serverSelectionTimeoutMS: 60000,
+    connectTimeoutMS: 60000,
+    socketTimeoutMS: 60000,
+  });
   console.log("Connected to in-memory MongoDB");
 });
 
@@ -25,12 +34,8 @@ beforeAll(async () => {
 afterEach(async () => {
   if (mongoose.connection.readyState === 1) {
     try {
-      // Instead of deleting all collections, keep track of what was created in each test
-      // and clean up only what's necessary
       console.log("Test cleanup: Only clearing test-specific data");
-
-      // We could selectively clean specific patterns instead of everything
-      // For now, we'll just log the cleanup for debugging
+      // Log cleanup for debugging
     } catch (error) {
       console.error("Error in test cleanup:", error);
     }
@@ -40,7 +45,6 @@ afterEach(async () => {
 // Only clear all data after all tests are done
 afterAll(async () => {
   if (mongoose.connection.readyState === 1) {
-    // Clear all collections at the end of all tests
     const collections = mongoose.connection.collections;
     for (const key in collections) {
       try {
