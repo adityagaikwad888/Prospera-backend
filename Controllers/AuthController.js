@@ -30,7 +30,7 @@ module.exports.Signup = async (req, res, next) => {
     });
     console.log("helo");
     res
-      .status(201)
+      .status(201) // Ensure the status code matches the test expectation
       .json({ message: "User signed in successfully", success: true, user });
     next();
   } catch (error) {

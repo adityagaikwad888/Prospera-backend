@@ -6,8 +6,9 @@ const UserModel = require("../../model/UserModel");
 describe("Authentication API", () => {
   describe("POST /signup", () => {
     it("should create a new user", async () => {
+      const timestamp = Date.now(); // Add timestamp to ensure unique email
       const userData = {
-        email: "test@example.com",
+        email: `test${timestamp}@example.com`,
         password: "password123",
         username: "testuser",
         walletBalance: 10000,
@@ -28,9 +29,9 @@ describe("Authentication API", () => {
     });
 
     it("should return error for duplicate email", async () => {
-      // First create a user
+      const timestamp = Date.now();
       const userData = {
-        email: "duplicate@example.com",
+        email: `duplicate${timestamp}@example.com`,
         password: "password123",
         username: "duplicateuser",
         walletBalance: 10000,
@@ -39,7 +40,6 @@ describe("Authentication API", () => {
 
       await request(app).post("/signup").send(userData);
 
-      // Try to create the same user again
       const response = await request(app).post("/signup").send(userData);
 
       expect(response.body.message).toEqual("User already exists");

@@ -136,11 +136,35 @@ app.post("/sellStock", async (req, res) => {
 
 app.post("/marginUpdate", async (req, res) => {
   let { userId, margin } = req.body;
-  let update = await UserModel.updateOne(
-    { _id: userId },
-    { $set: { walletBalance: margin } }
-  );
-  res.send("Margin updated");
+
+  try {
+    // First check if user exists
+    const user = await UserModel.findById(userId);
+    if (!user) {
+      console.log(`User with ID ${userId} not found during margin update`);
+      return res.status(404).send("User not found");
+    }
+
+    // Update with findByIdAndUpdate instead of updateOne to ensure atomicity
+    const updatedUser = await UserModel.findByIdAndUpdate(
+      userId,
+      { $set: { walletBalance: margin } },
+      { new: true } // Return the updated document
+    );
+
+    if (!updatedUser) {
+      console.log(`Failed to update user with ID ${userId}`);
+      return res.status(500).send("Failed to update user");
+    }
+
+    console.log(
+      `Successfully updated wallet balance to ${margin} for user ${userId}`
+    );
+    res.send("Margin updated");
+  } catch (error) {
+    console.error(`Error in marginUpdate:`, error);
+    res.status(500).send("Server error");
+  }
 });
 
 // Add the missing /data endpoint
