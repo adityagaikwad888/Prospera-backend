@@ -143,4 +143,10 @@ app.post("/marginUpdate", async (req, res) => {
   res.send("Margin updated");
 });
 
+// Add the missing /data endpoint
+app.get("/data", async (req, res) => {
+  let data = await UserModel.find();
+  res.json(data);
+});
+
 module.exports = app;

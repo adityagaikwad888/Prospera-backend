@@ -4,6 +4,10 @@ const { PositionsModel } = require("../../model/PositionsModel");
 
 describe("Positions API", () => {
   beforeAll(async () => {
+    // Clean up existing test data
+    await PositionsModel.deleteMany({});
+
+    // Insert test positions
     const positions = [
       { name: "AAPL", qty: 5, price: 145.75 },
       { name: "MSFT", qty: 10, price: 300.5 },

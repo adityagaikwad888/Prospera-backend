@@ -6,6 +6,10 @@ describe("User API", () => {
   let testUserId;
 
   beforeAll(async () => {
+    // Clean up any existing test users
+    await UserModel.deleteMany({ email: "wallet@example.com" });
+
+    // Create a test user
     const user = new UserModel({
       email: "wallet@example.com",
       password: "password123",
