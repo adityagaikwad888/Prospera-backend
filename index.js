@@ -50,6 +50,10 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
+app.get("/api/HealthCheck", (req, res) => {
+  res.status(200).json({ message: "API is healthy" });
+});
+
 app.get(`/api/StockData`, async (req, res) => {
   try {
     // List of Indian stock symbols (NSE)
