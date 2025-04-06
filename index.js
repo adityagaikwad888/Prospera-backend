@@ -16,10 +16,11 @@ const app = express();
 const port = process.env.PORT || 3001;
 const url = process.env.MONGO_URL;
 
+// In index.js
 app.use(
   cors({
-    origin: ["http://localhost:3000"], // Add all frontend URLs explicitly
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    origin: [process.env.VITE_FRONTEND_URL, "http://localhost:3000"],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Include OPTIONS for preflight
     credentials: true,
     allowedHeaders: [
       "Content-Type",

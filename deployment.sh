@@ -98,6 +98,16 @@ for i in {1..10}; do
   sleep 2
 done
 
+log "Backend container deployed with ID: $BACKEND_CONTAINER_ID"
+
+# Add this right before starting the frontend container
+# Update VITE_BACKEND_URL to use the container name
+sed -i "s|VITE_BACKEND_URL=http://localhost:3001|VITE_BACKEND_URL=http://$BACKEND_CONTAINER:3001|g" $ENV_FILE
+log "Updated backend URL for container networking to http://$BACKEND_CONTAINER:3001"
+
+# Deploying the frontend container
+log "Deploying frontend container..."
+
 if [ "$STATUS" != "200" ]; then
   log "Backend failed health check after multiple attempts. Exiting."
   exit 1
