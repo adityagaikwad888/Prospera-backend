@@ -19,11 +19,7 @@ const url = process.env.MONGO_URL;
 // In your backend index.js file
 app.use(
   cors({
-    origin: [
-      process.env.VITE_FRONTEND_URL,
-      "http://localhost:3000",
-      "http://15.207.21.1:3000",
-    ],
+    origin: ["http://localhost:3000"],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
   })
@@ -39,7 +35,7 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log(err));
 
-app.listen(port, () => {
+app.listen(port, "0.0.0.0", () => {
   console.log(`Server is running on port ${port}`);
 });
 
