@@ -19,7 +19,11 @@ const url = process.env.MONGO_URL;
 // In your backend index.js file
 app.use(
   cors({
-    origin: ["http://localhost:3000", `${process.env.FRONTEND_URL}`],
+    origin: [
+      "http://localhost:3000",
+      `${process.env.FRONTEND_URL}`,
+      "http://65.1.106.80:3000",
+    ],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
   })
