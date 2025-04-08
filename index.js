@@ -35,11 +35,16 @@ app.use(bodyParser.json());
 app.use(express.json());
 app.use(`/`, authRoute);
 
-// Add this to your Express app
 app.use((req, res, next) => {
   res.setHeader(
     "Content-Security-Policy",
-    "default-src 'self'; script-src 'self' 'unsafe-eval'; connect-src 'self' https://finnhub.io;"
+    "default-src 'self'; " +
+      "style-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://fonts.googleapis.com 'unsafe-inline'; " +
+      "font-src 'self' https://fonts.gstatic.com; " +
+      "script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; " +
+      "connect-src 'self' http://65.1.106.80:3001; " +
+      "img-src 'self' data:; " +
+      "object-src 'none';"
   );
   next();
 });
