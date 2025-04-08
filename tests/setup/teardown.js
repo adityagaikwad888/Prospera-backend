@@ -12,7 +12,4 @@ module.exports = async () => {
     await global.__MONGOD__.stop();
     console.log("Stopped MongoDB Memory Server");
   }
-
-  // Add delay to ensure cleanup completes
-  await new Promise((resolve) => setTimeout(resolve, 1000));
 };
