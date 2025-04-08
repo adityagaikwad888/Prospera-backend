@@ -23,6 +23,7 @@ app.use(
       "http://localhost:3000",
       `${process.env.FRONTEND_URL}`,
       "http://65.1.106.80:3000",
+      "http://65.1.106.80",
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
@@ -33,6 +34,15 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(`/`, authRoute);
+
+// Add this to your Express app
+app.use((req, res, next) => {
+  res.setHeader(
+    "Content-Security-Policy",
+    "default-src 'self'; script-src 'self' 'unsafe-eval'; connect-src 'self' https://finnhub.io;"
+  );
+  next();
+});
 
 mongoose
   .connect(url)
