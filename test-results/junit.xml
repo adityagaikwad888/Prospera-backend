@@ -1,59 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="18" failures="0" errors="0" time="13.927">
-  <testsuite name="Orders and Margin API" errors="0" failures="0" skipped="0" timestamp="2025-04-08T09:26:42" time="3.433" tests="3">
-    <testcase classname="Orders and Margin API GET /allOrders/:userId should return status 200 with user orders" name="Orders and Margin API GET /allOrders/:userId should return status 200 with user orders" time="0.411">
+<testsuites name="jest tests" tests="18" failures="0" errors="0" time="18.878">
+  <testsuite name="Orders and Margin API" errors="0" failures="0" skipped="0" timestamp="2025-04-09T06:15:11" time="4.057" tests="3">
+    <testcase classname="Orders and Margin API GET /allOrders/:userId should return status 200 with user orders" name="Orders and Margin API GET /allOrders/:userId should return status 200 with user orders" time="0.435">
     </testcase>
-    <testcase classname="Orders and Margin API GET /allOrders/:userId should return empty array for user with no orders" name="Orders and Margin API GET /allOrders/:userId should return empty array for user with no orders" time="0.296">
+    <testcase classname="Orders and Margin API GET /allOrders/:userId should return empty array for user with no orders" name="Orders and Margin API GET /allOrders/:userId should return empty array for user with no orders" time="0.287">
     </testcase>
-    <testcase classname="Orders and Margin API POST /marginUpdate should update user wallet balance with status 200" name="Orders and Margin API POST /marginUpdate should update user wallet balance with status 200" time="0.325">
-    </testcase>
-  </testsuite>
-  <testsuite name="Authentication API" errors="0" failures="0" skipped="0" timestamp="2025-04-08T09:26:46" time="2.257" tests="4">
-    <testcase classname="Authentication API POST /signup should create a new user" name="Authentication API POST /signup should create a new user" time="0.363">
-    </testcase>
-    <testcase classname="Authentication API POST /signup should return error for duplicate email" name="Authentication API POST /signup should return error for duplicate email" time="0.297">
-    </testcase>
-    <testcase classname="Authentication API POST /signin should sign in an existing user with status 201" name="Authentication API POST /signin should sign in an existing user with status 201" time="0.552">
-    </testcase>
-    <testcase classname="Authentication API POST /signin should reject invalid credentials" name="Authentication API POST /signin should reject invalid credentials" time="0.333">
+    <testcase classname="Orders and Margin API POST /marginUpdate should update user wallet balance with status 200" name="Orders and Margin API POST /marginUpdate should update user wallet balance with status 200" time="0.337">
     </testcase>
   </testsuite>
-  <testsuite name="Holdings API" errors="0" failures="0" skipped="0" timestamp="2025-04-08T09:26:48" time="1.956" tests="4">
-    <testcase classname="Holdings API POST /buyStock should create a new order and holding when buying stock" name="Holdings API POST /buyStock should create a new order and holding when buying stock" time="0.343">
+  <testsuite name="Authentication API" errors="0" failures="0" skipped="0" timestamp="2025-04-09T06:15:15" time="2.478" tests="4">
+    <testcase classname="Authentication API POST /signup should create a new user" name="Authentication API POST /signup should create a new user" time="0.337">
     </testcase>
-    <testcase classname="Holdings API GET /allHoldings/:userId should return all holdings for a user" name="Holdings API GET /allHoldings/:userId should return all holdings for a user" time="0.332">
+    <testcase classname="Authentication API POST /signup should return error for duplicate email" name="Authentication API POST /signup should return error for duplicate email" time="0.293">
     </testcase>
-    <testcase classname="Holdings API POST /sellStock should process a stock sale correctly" name="Holdings API POST /sellStock should process a stock sale correctly" time="0.32">
+    <testcase classname="Authentication API POST /signin should sign in an existing user with status 201" name="Authentication API POST /signin should sign in an existing user with status 201" time="0.547">
     </testcase>
-    <testcase classname="Holdings API POST /showHoldings should return holdings for specific stock with status 200" name="Holdings API POST /showHoldings should return holdings for specific stock with status 200" time="0.291">
-    </testcase>
-  </testsuite>
-  <testsuite name="User API" errors="0" failures="0" skipped="0" timestamp="2025-04-08T09:26:50" time="0.952" tests="1">
-    <testcase classname="User API GET /data should return all users with status 200" name="User API GET /data should return all users with status 200" time="0.316">
+    <testcase classname="Authentication API POST /signin should reject invalid credentials" name="Authentication API POST /signin should reject invalid credentials" time="0.425">
     </testcase>
   </testsuite>
-  <testsuite name="User API" errors="0" failures="0" skipped="0" timestamp="2025-04-08T09:26:51" time="1.036" tests="1">
-    <testcase classname="User API GET /data should return all users with status 200" name="User API GET /data should return all users with status 200" time="0.014">
+  <testsuite name="Holdings API" errors="0" failures="0" skipped="0" timestamp="2025-04-09T06:15:18" time="2.135" tests="4">
+    <testcase classname="Holdings API POST /buyStock should create a new order and holding when buying stock" name="Holdings API POST /buyStock should create a new order and holding when buying stock" time="0.35">
+    </testcase>
+    <testcase classname="Holdings API GET /allHoldings/:userId should return all holdings for a user" name="Holdings API GET /allHoldings/:userId should return all holdings for a user" time="0.309">
+    </testcase>
+    <testcase classname="Holdings API POST /sellStock should process a stock sale correctly" name="Holdings API POST /sellStock should process a stock sale correctly" time="0.328">
+    </testcase>
+    <testcase classname="Holdings API POST /showHoldings should return holdings for specific stock with status 200" name="Holdings API POST /showHoldings should return holdings for specific stock with status 200" time="0.283">
     </testcase>
   </testsuite>
-  <testsuite name="Stock API" errors="0" failures="0" skipped="0" timestamp="2025-04-08T09:26:52" time="0.836" tests="1">
-    <testcase classname="Stock API GET /api/StockData should return stock data with correct structure" name="Stock API GET /api/StockData should return stock data with correct structure" time="0.03">
+  <testsuite name="User API" errors="0" failures="0" skipped="0" timestamp="2025-04-09T06:15:20" time="1.044" tests="1">
+    <testcase classname="User API GET /data should return all users with status 200" name="User API GET /data should return all users with status 200" time="0.022">
     </testcase>
   </testsuite>
-  <testsuite name="Positions API" errors="0" failures="0" skipped="0" timestamp="2025-04-08T09:26:53" time="1.011" tests="1">
-    <testcase classname="Positions API GET /allPositions should return status 200 with all positions" name="Positions API GET /allPositions should return status 200 with all positions" time="0.02">
+  <testsuite name="Positions API" errors="0" failures="0" skipped="0" timestamp="2025-04-09T06:15:21" time="0.742" tests="1">
+    <testcase classname="Positions API GET /allPositions should return status 200 with all positions" name="Positions API GET /allPositions should return status 200 with all positions" time="0.019">
     </testcase>
   </testsuite>
-  <testsuite name="Root Endpoint" errors="0" failures="0" skipped="0" timestamp="2025-04-08T09:26:54" time="0.712" tests="1">
-    <testcase classname="Root Endpoint GET / should return status 200 with Hello World message" name="Root Endpoint GET / should return status 200 with Hello World message" time="0.025">
+  <testsuite name="User API" errors="0" failures="0" skipped="0" timestamp="2025-04-09T06:15:22" time="1.969" tests="1">
+    <testcase classname="User API GET /data should return all users with status 200" name="User API GET /data should return all users with status 200" time="0.894">
     </testcase>
   </testsuite>
-  <testsuite name="Stock API" errors="0" failures="0" skipped="0" timestamp="2025-04-08T09:26:54" time="0.667" tests="1">
-    <testcase classname="Stock API GET /api/StockData should return status 200 with data" name="Stock API GET /api/StockData should return status 200 with data" time="0.015">
+  <testsuite name="Server Health Check" errors="0" failures="0" skipped="0" timestamp="2025-04-09T06:15:24" time="1.378" tests="1">
+    <testcase classname="Server Health Check GET /health should return status 200" name="Server Health Check GET /health should return status 200" time="0.044">
     </testcase>
   </testsuite>
-  <testsuite name="Server Health Check" errors="0" failures="0" skipped="0" timestamp="2025-04-08T09:26:55" time="0.87" tests="1">
-    <testcase classname="Server Health Check GET /health should return status 200" name="Server Health Check GET /health should return status 200" time="0.034">
+  <testsuite name="Stock API" errors="0" failures="0" skipped="0" timestamp="2025-04-09T06:15:25" time="1.515" tests="1">
+    <testcase classname="Stock API GET /api/StockData should return stock data with correct structure" name="Stock API GET /api/StockData should return stock data with correct structure" time="0.093">
+    </testcase>
+  </testsuite>
+  <testsuite name="Root Endpoint" errors="0" failures="0" skipped="0" timestamp="2025-04-09T06:15:27" time="1.603" tests="1">
+    <testcase classname="Root Endpoint GET / should return status 200 with Hello World message" name="Root Endpoint GET / should return status 200 with Hello World message" time="0.098">
+    </testcase>
+  </testsuite>
+  <testsuite name="Stock API" errors="0" failures="0" skipped="0" timestamp="2025-04-09T06:15:28" time="1.675" tests="1">
+    <testcase classname="Stock API GET /api/StockData should return status 200 with data" name="Stock API GET /api/StockData should return status 200 with data" time="0.031">
     </testcase>
   </testsuite>
 </testsuites>

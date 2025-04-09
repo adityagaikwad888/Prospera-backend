@@ -22,8 +22,6 @@ app.use(
     origin: [
       "http://localhost:3000",
       `${process.env.FRONTEND_URL}`,
-      "https://65.1.106.80:3000",
-      "https://65.1.106.80",
       "https://prospera-frontend-ashy.vercel.app",
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
